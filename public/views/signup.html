@@ -1,0 +1,111 @@
+<div class="external" ng-controller="signupController" >
+    <div class="centerDiv">
+        <div class="container">
+            <div class="heading">
+                <h1 id="title" class="mainHeading">
+                    Sign Up
+                </h3>
+            </div>
+            <div class="form">
+                <form name="signinForm" novalidate>
+                    
+                    <div style="width:100%;padding-left: 10px; height: 57px;margin: 5px;" id="nameField">
+                        <div class="inputField">
+                            <i class="fa fa-user fa-lg " id="nameFieldIcon" ></i>
+                            <input name="username"  class="input" type="text" id="name"  ng-model="signin.username" ng-required="true" placeholder="enter username">
+                            
+                           
+                        </div>
+                        <label ng-style="d1" ng-show="signinForm.username.$dirty && signinForm.username.$error.required"  id="1">Please fill this field</label>
+                    </div>
+                    <div style="width:100%;padding-left: 10px; height: 57px;margin: 5px;" id="nameField">
+                        <div class="inputField">
+                            <i class="fa fa-user fa-lg " id="nameFieldIcon" ></i>
+                            <input name="fname"  class="input" type="text" id="fname"  ng-model="signin.fname" ng-required="true" placeholder="enter first name">
+                            
+                           
+                        </div>
+                        <label ng-style="d1" ng-show="signinForm.fname.$dirty && signinForm.fname.$error.required"  id="4">Please fill this field</label>
+                    </div>
+                    <div style="width:100%;padding-left: 10px; height: 57px;margin: 5px;" id="nameField">
+                        
+                        <div class="inputField">
+                            <i class="fa fa-user fa-lg " id="nameFieldIcon" ></i>
+                            <input name="lname"  class="input" type="text" id="lname"  ng-model="signin.lname" ng-required="true" placeholder="enter last name">
+                            
+                        
+                        </div>
+                        <label ng-style="d1" ng-show="signinForm.lname.$dirty && signinForm.lname.$error.required"  id="5">Please fill this field</label>
+                    </div>
+                    <div style="width:100%;padding-left: 10px; height: 57px; margin: 5px;">
+                        <div class="inputField">
+                            <i class="fa fa-envelope" ></i>
+                            <input name="email" class="input" type="email" id="email" placeholder="EmailId" ng-model="signin.email"  ng-required="true">
+                            
+                        </div>
+                        <label ng-style="d2" ng-show="signinForm.email.$dirty && (signinForm.email.$error.email || signinForm.email.$error.required) " id="2">Please enter correct email</label>
+                    </div>
+                    <div style="width:100%;padding-left: 10px; height: 57px; margin: 5px;">
+                        <div class="inputField">
+                            <i class="fa fa-phone" ></i>
+                            <input name="number" ng-pattern="/^[5-9]{1}[0-9]{9}$/" class="input" type="number" id="number"  placeholder="Number" ng-model="signin.number" ng-required="true">
+                            
+                        </div>
+                        <label ng-style="d3" ng-show="signinForm.number.$dirty && signinForm.number.$invalid" id="3">Please enter 10 digit number</label>
+                    </div>
+                    <div style="width:100%;padding-left: 10px; height: 57px; margin: 5px;">
+                        <div class="inputField"  >  
+                            <i class="fa fa-key fa-lg" ></i>
+                           
+                            <input  name="password" ng-change="passwordHandler(signin.password)"   class="input" type="password" id="password" min="5" max="8" placeholder="Password" ng-model="signin.password" ng-required="true">
+                            
+                        </div>
+                        <label ng-show="signinForm.password.$dirty && (!(p1==false && p2==false && p3==false && p4==false))" id="3">Please enter correct password</label>
+                    </div>
+                    <div style="width:100%;padding-left: 10px; height: 57px; margin: 5px;">
+                        <div ng-show="(p1==false && p2==false && p3==false && p4==false)" class="inputField">
+                            <i class="fa fa-key fa-lg" ></i>
+                            <input class="input" type="password" id="cpassword" min="5" max="8" ng-change="matchPassword(signin.cpassword,signin.password)"   placeholder="Confirm Password" ng-model="signin.cpassword" ng-required="true">
+                            
+                        </div>
+
+                        <label ng-show="signinForm.cpassword.$dirty && cpasswordFalse" ng-model="cpasswordFalse" id="3">doesn't match password field</label>
+                    </div>
+                    
+
+                    <div class="buttons">
+                        
+                        <div>
+                            
+                            <button ng-disabled="signinForm.$invalid || !(p1==false && p2==false && p3==false && p4==false) || !cpasswordFalse" ng-click="submitHandler($event)" class="active" id="signUp" type="submit">SignUp</button>
+                        </div>
+                        
+                    </div>
+
+                </form>
+            </div>
+            
+        </div>
+        <div ng-show="signinForm.password.$dirty" id="passwordValidateBox">
+            <p>
+                <i ng-style="c1" ng-model="check1"  class="fa fa-check checkIcon" aria-hidden="true"></i>
+                <span class="lowerLetter">At least 1 lowercase letter</span>
+            </p>
+            <p>
+                <i ng-style="c2" ng-model="check2"  class="fa fa-check checkIcon" aria-hidden="true"></i>
+                <span class="UpperLetter">At least 1 uppercase letter</span>
+            </p>
+            <p>
+                <i ng-style="c3" ng-model="check3"  class="fa fa-check checkIcon" aria-hidden="true"></i>
+                <span class="number">At least a number</span>
+            </p>
+            <p>
+                <i ng-style="c4" ng-model="check4"  class="fa fa-check checkIcon" aria-hidden="true"></i>
+                <span class="passLength">length between 5 to 8 characters</span>
+            </p>
+        </div>
+        
+    </div>
+</div>
+
+

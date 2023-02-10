@@ -1,0 +1,50 @@
+<div class="external" ng-controller="loginController" >
+    <div class="centerDiv">
+        <div class="container">
+            <div class="heading">
+                <h1 id="title" class="mainHeading">
+                    LogIn
+                </h3>
+            </div>
+            <div class="form">
+                <form name="signInForm" novalidate>
+                    
+                    <div style="width:100%;padding-left: 10px; height: 57px; margin: 5px;">
+                        <div class="inputField">
+                            <i class="fa fa-envelope" ></i>
+                            <input class="input" type="text" id="username" placeholder="EmailId/username" ng-model="signIn.username" required>
+                            
+                        </div>
+                        <!-- <label id="2">Please enter correct username/emailid</label> -->
+                    </div>
+                    <div style="width:100%;padding-left: 10px; height: 57px; margin: 5px;">
+                        <div class="inputField">
+                            <i class="fa fa-key fa-lg" ></i>
+                            <input class="input" type="password" id="password" min="5" max="8" ng-model="signIn.password" placeholder="Password" required>
+                            
+                        </div>
+                        <!-- <label id="3">Please enter password of 5-8 Characters</label> -->
+                    </div>
+
+                    <div>
+                        <a ui-sref="forgetPassword">Forget Password ?</a>
+                    </div>
+
+                    <div class="buttons">
+                        <div>
+                           
+                            <button ng-disabled='disabledFlag' id="loginButton" ng-disabled="signInForm.$invalid" ng-click="submitHandler($event)" class="active" id="signIn" type="submit">{{buttonText}}</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        not a member? <a ui-sref="signup">signup</a>
+                    </div>
+
+                </form>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
